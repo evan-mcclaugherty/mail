@@ -1,0 +1,52 @@
+<header>
+    <h1>Mail Merge</h1>
+</header>
+<main>
+    <form action="/" method="post" class="flex-column">
+        <div class="flex justify-between">
+            <section class="flex-column justify-between">
+                <div>
+                    <p>
+                        Enter names / emails (one per line)
+                    </p>
+                </div>
+                <div class="sameHeight flex">
+                    <textarea name="namesAndEmails" cols="40" autofocus placeholder="Joe, Jones, joe@example.com">{{persist.namesAndEmails}}</textarea>
+                </div>
+            </section>
+            <section class="flex-column justify-between">
+                <div>
+                    <p>
+                        Enter the text. The following substitutions are valid:
+                    </p>
+                    <ul>
+                        <li>{first}</li>
+                        <li>{last}</li>
+                        <li>{email}</li>
+                    </ul>
+                </div>
+                <div class="sameHeight flex-column">
+                    <input value="{{persist.subject}}" type="text" name="subject" placeholder="Subject">
+                    <textarea class="flex-1" name="emailContent" cols="40" placeholder="Body">{{persist.emailContent}}</textarea>
+                </div>
+            </section>
+        </div>
+        <button type="submit" name="button">Preview</button>
+    </form>
+    {{#if namesAndEmailsObjArray}}
+        <h1>Emails({{numOfEmails}})</h1>
+        <div class="flex-column">
+            {{#each namesAndEmailsObjArray}}
+                <div class="emails">
+                    <p>To: {{this.first}} {{this.last}} <{{this.email}}></p>
+                    <p>
+                        Subject: {{subject}}
+                    </p>
+                    <p>
+                        {{emailContent}}
+                    </p>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+</main>

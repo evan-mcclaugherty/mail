@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+a {
+    color: #00B7FF;
+}
+.emails {
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.sameHeight {
+    height: 15vh;
+}
+.flex-1 {
+    flex: 1;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.self-bottom {
+    align-self: flex-end;
+}
+.flex {
+    display: flex;
+}
+.justify-between {
+    justify-content: space-between;
+}
+body {
+    margin: 0;
+    padding: 1rem;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+textarea, input {
+    font-size: 1rem;
+}
+header {
+    padding: 0 2rem;
+}
+main {
+    padding: 2rem;
+}
+button {
+    margin-top: 1rem;
+    align-self: flex-end;
+    padding: 0.5rem;
+}
+section {
+    width: 45%;
+}
+input {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+textarea {
+    width: 100%;
+    resize: none;
+}
+button {
+    padding: 0.5rem;
+}
