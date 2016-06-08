@@ -61,3 +61,16 @@ textarea {
 button {
     padding: 0.5rem;
 }
+.emails {
+    padding: 1rem;
+    word-wrap: normal;
+}
+.emails textarea {
+    border: none;
+}
+.fa {
+    float: right;
+}
+.fa:hover {
+    cursor: pointer;
+}

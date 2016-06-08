@@ -1,21 +1,22 @@
 var express = require('express');
 var router = express.Router();
-var logic = require('../public/javascripts/main.js')
-/* GET home page. */
+var logic = require('../lib/serverLogic.js')
+    /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', {});
 });
 
 router.post('/', (req, res) => {
     let subject = req.body.subject;
+    let namesAndEmails = req.body.namesAndEmails;
+    let emailContent = req.body.emailContent;
+
     let persist = {
-        namesAndEmails: req.body.namesAndEmails,
+        namesAndEmails: namesAndEmails,
         subject: subject,
-        emailContent: req.body.emailContent
+        emailContent: emailContent
     }
-    let emailContent = logic.replaceVariables(req.body.emailContent);
-    let namesAndEmailsArray = logic.parseRequest(req.body.namesAndEmails);
-    console.log(req.body.emailContent);
+    let namesAndEmailsArray = logic.parseRequest(namesAndEmails);
     let namesAndEmailsObjArray = logic.makeObjectArray(namesAndEmailsArray, subject, emailContent);
     res.render('index', {
         persist: persist,

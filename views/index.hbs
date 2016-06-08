@@ -34,19 +34,26 @@
         <button type="submit" name="button">Preview</button>
     </form>
     {{#if namesAndEmailsObjArray}}
-        <h1>Emails({{numOfEmails}})</h1>
+        <h1 class="header">Emails(<span class="numOfEmails">{{numOfEmails}}</span>)</h1>
         <div class="flex-column">
             {{#each namesAndEmailsObjArray}}
                 <div class="emails">
-                    <p>To: {{this.first}} {{this.last}} <{{this.email}}></p>
+                    <i class="fa fa-times-circle-o fa-2x close" aria-hidden="true"></i>
+                    <p>To: {{this.first}} {{this.last}}
+                        <{{this.email}}>
+                    </p>
                     <p>
                         Subject: {{subject}}
                     </p>
-                    <p>
+                    <br>
+                    <textarea name="name" rows="8" cols="40">
                         {{emailContent}}
-                    </p>
+                    </textarea>
                 </div>
             {{/each}}
         </div>
     {{/if}}
 </main>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="../javascripts/closeEmail.js"></script>
